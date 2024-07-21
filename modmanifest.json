@@ -1,0 +1,7 @@
+{
+    "UniqueModName": "nbk_redspy_QM_RecycleHotKey",
+    "Assemblies": [
+        "QM_RecycleHotKey.dll"
+    ],
+    "Dependencies": []
+}
