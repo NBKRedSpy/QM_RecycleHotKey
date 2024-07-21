@@ -21,6 +21,9 @@ The configuration file will be created on the first game run and can be found at
 |AmputateKey|A|Amputates all of the corpse's parts|
 |RecycleAlsoAmputates|false|If true, will also amputate when the recycling hotkey is pressed|
 
+Valid keys can be found at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
+There are some oddities such as the number 1 is actually Alpha1.
+
 # Support
 If you enjoy my mods and want to buy me a coffee, check out my [Ko-Fi](https://ko-fi.com/nbkredspy71915) page.
 Thanks!

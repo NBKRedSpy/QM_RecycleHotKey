@@ -49,6 +49,9 @@ The configuration file will be created on the first game run and can be found at
 [/tr]
 [/table]
 
+Valid keys can be found at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
+There are some oddities such as the number 1 is actually Alpha1.
+
 [h1]Support[/h1]
 
 If you enjoy my mods and want to buy me a coffee, check out my [url=https://ko-fi.com/nbkredspy71915]Ko-Fi[/url] page.
