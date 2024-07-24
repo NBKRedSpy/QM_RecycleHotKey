@@ -36,6 +36,7 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 
 # Change Log
 ## 1.1.0
-* Added option to amputate without a melee weapon.
+* Added option to amputate without a melee weapon.  
+    * Suggested by Steam user VETXP
 
 
