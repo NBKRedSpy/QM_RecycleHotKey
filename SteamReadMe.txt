@@ -5,6 +5,8 @@ Amputate and recycle corpses by pressing a hot key.  Z recycles for current corp
 
 To always amputate when recycling items, set the config value [i]RecycleAlsoAmputates[/i] to true.
 
+Has an option to amputate without having or damaging a weapon capable of amputation (melee weapons).  Disabled by default.
+
 See configuration below.
 
 [h1]Filtering Out Items[/h1]
@@ -47,6 +49,14 @@ The configuration file will be created on the first game run and can be found at
 [td]If true, will also amputate when the recycling hotkey is pressed
 [/td]
 [/tr]
+[tr]
+[td]AmputateWithoutWeapon
+[/td]
+[td]false
+[/td]
+[td]If true, will execute the amputation action without requiring or using a weapon that can amputate.
+[/td]
+[/tr]
 [/table]
 
 Valid keys can be found at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
@@ -60,3 +70,10 @@ Thanks!
 [h1]Source Code[/h1]
 
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
+
+[h1]Change Log[/h1]
+
+[h2]1.1.0[/h2]
+[list]
+[*]Added option to amputate without a melee weapon.
+[/list]

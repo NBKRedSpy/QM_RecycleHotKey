@@ -19,6 +19,15 @@ namespace QM_RecycleHotKey
         [JsonConverter(typeof(StringEnumConverter))]
         public KeyCode AmputateKey { get; set; } = KeyCode.A;
 
+        /// <summary>
+        /// If true, will execute the amputation action without requiring or using a 
+        /// weapon that can amputate.
+        /// </summary>
+        public bool AmputateWithoutWeapon { get; set; } = false;
+
+        /// <summary>
+        /// When recycling items, the amputation will also occur.
+        /// </summary>
         public bool RecycleAlsoAmputates { get; set; } = false;
 
         public static ModConfig LoadConfig(string configPath)

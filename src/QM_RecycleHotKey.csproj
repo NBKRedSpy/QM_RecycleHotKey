@@ -3,7 +3,7 @@
     <TargetFramework>net48</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-	  <VersionPrefix>1.0.0</VersionPrefix>
+	  <VersionPrefix>1.1.0</VersionPrefix>
   </PropertyGroup>
 	<PropertyGroup>
 		<GAME_NAME>Quasimorph</GAME_NAME>
@@ -43,7 +43,7 @@
 			<Private>False</Private>
 		</Reference>
 		<Reference Include="UnityEngine.UI">
-		  <HintPath>D:\Games\Steam\steamapps\common\Quasimorph\Quasimorph_Data\Managed\UnityEngine.UI.dll</HintPath>
+		  <HintPath>$(ManagedPath)UnityEngine.UI.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
