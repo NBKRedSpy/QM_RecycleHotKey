@@ -13,20 +13,22 @@ namespace QM_RecycleHotKey
 {
     public static class Plugin
     {
-        public static string ModAssemblyName => Assembly.GetExecutingAssembly().GetName().Name;
-        public static string ConfigPath => Path.Combine(Application.persistentDataPath, ModAssemblyName, "config.json");
-        public static string ModPersistenceFolder => Path.Combine(Application.persistentDataPath, ModAssemblyName);
+        public static ConfigDirectories ConfigDirectories = new ConfigDirectories();
+
         public static ModConfig Config { get; private set; }
 
         [Hook(ModHookType.AfterConfigsLoaded)]
         public static void AfterConfig(IModContext context)
         {
 
-            Directory.CreateDirectory(ModPersistenceFolder);
+            Directory.CreateDirectory(ConfigDirectories.AllModsConfigFolder);
+            ConfigDirectories = new ConfigDirectories();
+            ConfigDirectories.UpgradeModDirectory();
+            Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
 
-            Config = ModConfig.LoadConfig(ConfigPath);
+            Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);
 
-            new Harmony("nbk_Redspy_" + ModAssemblyName).PatchAll();
+            new Harmony("nbk_Redspy_" + ConfigDirectories.ModAssemblyName).PatchAll();
         }
 
 

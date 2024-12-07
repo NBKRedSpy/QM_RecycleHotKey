@@ -15,7 +15,7 @@ Use the mod "I Don't Want That! (Filter pickup items)" to avoid picking up items
 
 [h1]Configuration[/h1]
 
-The configuration file will be created on the first game run and can be found at [i]%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph\QM_RecycleHotKey\config.json[/i].
+The configuration file will be created on the first game run and can be found at [i]%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\QM_RecycleHotKey\config.json[/i].
 [table]
 [tr]
 [td]Key
@@ -72,6 +72,11 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 [h1]Change Log[/h1]
+
+[h2]1.2.0[/h2]
+[list]
+[*]Moved config file directory.
+[/list]
 
 [h2]1.1.0[/h2]
 [list]

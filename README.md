@@ -15,7 +15,7 @@ Use the mod "I Don't Want That! (Filter pickup items)" to avoid picking up items
 
 # Configuration
 
-The configuration file will be created on the first game run and can be found at `%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph\QM_RecycleHotKey\config.json`.
+The configuration file will be created on the first game run and can be found at `%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\QM_RecycleHotKey\config.json`.
 
 |Key|Default|Description|
 |--|--|--|
@@ -35,6 +35,9 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 # Change Log
+## 1.2.0
+* Moved config file directory.
+
 ## 1.1.0
 * Added option to amputate without a melee weapon.  
     * Suggested by Steam user VETXP
