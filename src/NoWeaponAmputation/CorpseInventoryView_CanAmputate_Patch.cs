@@ -5,12 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MGSC.CorpseInventoryView;
 
 namespace QM_RecycleHotKey.NoWeaponAmputation
 {
 
-    [HarmonyPatch(typeof(CorpseInventoryView), nameof(CorpseInventoryView.CanAmputate))]
+    [HarmonyPatch(typeof(CorpseInspectWindow), nameof(CorpseInspectWindow.CanAmputate))]
     internal static class CorpseInventoryView_CanAmputate_Patch
     {
         public static bool Prepare()
@@ -18,7 +17,7 @@ namespace QM_RecycleHotKey.NoWeaponAmputation
             return Plugin.Config.AmputateWithoutWeapon;
         }
 
-        public static bool Prefix(CorpseInventoryView __instance, ref bool __result)
+        public static bool Prefix(ref bool __result)
         {
             //copy of the original.
 
@@ -28,8 +27,7 @@ namespace QM_RecycleHotKey.NoWeaponAmputation
             //---- Original Code End
 
             //Remove the amputation weapon check.
-            __result = __instance._workMode == WorkMode.ShowCorpse;
-
+            __result = true;
             return false;
         }
     }

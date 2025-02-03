@@ -8,22 +8,16 @@ using HarmonyLib;
 using MGSC;
 using QM_RecycleHotKey;
 using UnityEngine;
-using static MGSC.CorpseInventoryView;
 
 namespace QM_RecycleHotKey
 {
-    [HarmonyPatch(typeof(CorpseInventoryView), nameof(CorpseInventoryView.Update))]
+    [HarmonyPatch(typeof(CorpseInspectWindow), nameof(CorpseInspectWindow.Update))]
     internal static class CorpseInventoryView_Update_Patch
     {
         public static bool MoveToBackpack { get; set; } = false;
 
-        public static void Postfix(CorpseInventoryView __instance)
+        public static void Postfix(CorpseInspectWindow __instance)
         {
-            if (__instance._workMode != CorpseInventoryView.WorkMode.ShowCorpse)
-            {
-                return;
-            }
-
             bool isRecycleCurrent = false;
 
             if (Input.GetKey(Plugin.Config.RecycleCurrentPageKey))
@@ -61,7 +55,7 @@ namespace QM_RecycleHotKey
                         __instance._disassemblyCorpseButton.OnPointerClick(null);
                     }
 
-                    if (startPage != ActiveCorpseScreenPage.BodyParts)
+                    if (startPage != CorpseInspectWindow.ActiveCorpseScreenPage.BodyParts)
                     {
                         //move back to backpack page.
                         if (__instance._itemsButton.isActiveAndEnabled)
