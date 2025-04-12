@@ -35,6 +35,14 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 # Change Log
+
+## 1.5.0
+Fix: This mod was preventing the "I Don't Want That!" from filtering amputated items when the AmputateWithoutWeapon option was enabled.
+Thank you to Discord user Necrosx for reporting the issue.
+
+## 1.4.0
+* Version 0.8.6 compatibility
+
 ## 1.3.0
 * v0.8.5 compatible.
 

@@ -1,22 +1,25 @@
-﻿using System;
+﻿using MGSC;
+using System;
 using System.Collections.Generic;
-using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HarmonyLib;
-using MGSC;
-using QM_RecycleHotKey;
 using UnityEngine;
+using static MGSC.CorpseInspectWindow;
 
 namespace QM_RecycleHotKey
 {
-    [HarmonyPatch(typeof(CorpseInspectWindow), nameof(CorpseInspectWindow.Update))]
-    internal static class CorpseInventoryView_Update_Patch
+    public class CorpseInspectWindow_Hook : MonoBehaviour
     {
-        public static bool MoveToBackpack { get; set; } = false;
+        public CorpseInspectWindow CorpseInspectWindow { get; set; }
 
-        public static void Postfix(CorpseInspectWindow __instance)
+
+        public void Update()
+        {
+            CorpseUpdate(CorpseInspectWindow);
+        }
+
+        public static void CorpseUpdate(CorpseInspectWindow __instance)
         {
             bool isRecycleCurrent = false;
 
@@ -41,12 +44,12 @@ namespace QM_RecycleHotKey
                 }
             }
 
-            if(!isRecycleCurrent || Plugin.Config.RecycleAlsoAmputates)
+            if (!isRecycleCurrent || Plugin.Config.RecycleAlsoAmputates)
             {
                 //Amputate
                 if (__instance._bodyPartsButton.isActiveAndEnabled)
                 {
-                    var startPage = __instance._activeCorpseScreenPageType;
+                    ActiveCorpseScreenPage startPage = __instance._currentPage;
 
                     __instance._bodyPartsButton.OnPointerClick(null);
 
@@ -55,7 +58,7 @@ namespace QM_RecycleHotKey
                         __instance._disassemblyCorpseButton.OnPointerClick(null);
                     }
 
-                    if (startPage != CorpseInspectWindow.ActiveCorpseScreenPage.BodyParts)
+                    if (startPage != ActiveCorpseScreenPage.BodyParts)
                     {
                         //move back to backpack page.
                         if (__instance._itemsButton.isActiveAndEnabled)
@@ -66,5 +69,6 @@ namespace QM_RecycleHotKey
                 }
             }
         }
+
     }
 }

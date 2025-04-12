@@ -19,13 +19,6 @@ namespace QM_RecycleHotKey.NoWeaponAmputation
 
         public static bool Prefix(ref bool __result)
         {
-            //copy of the original.
-
-            //---- Original Code start
-            //bool flag = _creatures.Player.Inventory.GetFirstAmputationWeapon() != null;
-            //return _workMode == WorkMode.ShowCorpse && flag;
-            //---- Original Code End
-
             //Remove the amputation weapon check.
             __result = true;
             return false;
