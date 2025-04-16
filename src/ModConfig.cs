@@ -13,6 +13,27 @@ namespace QM_RecycleHotKey
 {
     public class ModConfig
     {
+
+        /// <summary>
+        /// The list of items that will not be recycled.
+        /// </summary>
+        [JsonProperty(ItemConverterType =typeof(StringEnumConverter))]
+        public HashSet<ItemClass> DoNotRecycleItems { get; set; } = new HashSet<ItemClass>()
+        {
+            ItemClass.RepairKit,
+            ItemClass.Ammo,
+            ItemClass.Mine,
+            ItemClass.Grenade,
+            //Most of the repair kits.  Such as armor or firearm repair kits.
+            ItemClass.RepairKit,
+            //Contains some repair kits that are not tagged as RepairKit.  For example, hi-tech repair kit or quasimorph repair kit.
+            //  Shouldn't affect anything as regular parts should not break down.
+            ItemClass.Parts,        
+
+        };
+
+        public bool DoNotRecycleSpecialItems { get; set; } = true;
+
         [JsonConverter(typeof(StringEnumConverter))]
         public KeyCode RecycleCurrentPageKey { get; set; } = KeyCode.Z;
 

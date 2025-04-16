@@ -2,13 +2,18 @@
 
 ![thumbnail icon](media/thumbnail.png)
 
-Amputate and recycle corpses by pressing a hot key.  Z recycles for current corpse screen (backpack or body), and A to amputate.  Keys can be configured.
+All functionality is configurable. 
 
-To always amputate when recycling items, set the config value `RecycleAlsoAmputates` to true. 
+Adds the following functions to the corpse screen:
+* Hotkey for the recycle button.  Z by default.
+* Hotkey to amputate all limbs.  A by default.
+* Do not recycle certain items.  By default the items are: Ammo, Mine, Grenade, RepairKit, Parts.  
 
-Has an option to amputate without having or damaging a weapon capable of amputation (melee weapons).  Disabled by default.
+Optional and disabled by default:
+* Do not require a weapon to amputate.
+* Automatically recycle items and amputate all limbs when the recycle hotkey is pressed.
 
-See configuration below.
+See the [Configuration](#configuration) section below for the options.
 
 # Filtering Out Items
 Use the mod "I Don't Want That! (Filter pickup items)" to avoid picking up items that are not wanted after recycle/amputation.  For example: legs, hands, flesh, more meat than is inventory, etc.
@@ -23,8 +28,11 @@ The configuration file will be created on the first game run and can be found at
 |AmputateKey|A|Amputates all of the corpse's parts|
 |RecycleAlsoAmputates|false|If true, will also amputate when the recycling hotkey is pressed|
 |AmputateWithoutWeapon|false|If true, will execute the amputation action without requiring or using a weapon that can amputate.|
+|DoNotRecycleSpecialItems|true|If true, will not recycle items in the `DoNotRecycleItems` list.|
+|DoNotRecycleItems|Ammo, Mine, Grenade, RepairKit, Parts|The categories to not recycle.|
 
-Valid keys can be found at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
+To configure different hotkeys, valid key names can be found at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
+
 There are some oddities such as the number 1 is actually Alpha1.
 
 # Support
@@ -35,6 +43,9 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 # Change Log
+
+## 1.6.0
+* Added DoNotRecycleSpecialItems to not recycle common items like ammo.
 
 ## 1.5.0
 Fix: This mod was preventing the "I Don't Want That!" from filtering amputated items when the AmputateWithoutWeapon option was enabled.

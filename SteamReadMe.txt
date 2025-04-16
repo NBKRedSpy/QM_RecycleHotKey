@@ -1,13 +1,22 @@
 [h1]Quasimorph Recycle Hotkey[/h1]
 
 
-Amputate and recycle corpses by pressing a hot key.  Z recycles for current corpse screen (backpack or body), and A to amputate.  Keys can be configured.
+All functionality is configurable.
 
-To always amputate when recycling items, set the config value [i]RecycleAlsoAmputates[/i] to true.
+Adds the following functions to the corpse screen:
+[list]
+[*]Hotkey for the recycle button.  Z by default.
+[*]Hotkey to amputate all limbs.  A by default.
+[*]Do not recycle certain items.  By default the items are: Ammo, Mine, Grenade, RepairKit, Parts.
+[/list]
 
-Has an option to amputate without having or damaging a weapon capable of amputation (melee weapons).  Disabled by default.
+Optional and disabled by default:
+[list]
+[*]Do not require a weapon to amputate.
+[*]Automatically recycle items and amputate all limbs when the recycle hotkey is pressed.
+[/list]
 
-See configuration below.
+See the Configuration section below for the options.
 
 [h1]Filtering Out Items[/h1]
 
@@ -57,9 +66,26 @@ The configuration file will be created on the first game run and can be found at
 [td]If true, will execute the amputation action without requiring or using a weapon that can amputate.
 [/td]
 [/tr]
+[tr]
+[td]DoNotRecycleSpecialItems
+[/td]
+[td]true
+[/td]
+[td]If true, will not recycle items in the [i]DoNotRecycleItems[/i] list.
+[/td]
+[/tr]
+[tr]
+[td]DoNotRecycleItems
+[/td]
+[td]Ammo, Mine, Grenade, RepairKit, Parts
+[/td]
+[td]The categories to not recycle.
+[/td]
+[/tr]
 [/table]
 
-Valid keys can be found at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
+To configure different hotkeys, valid key names can be found at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
+
 There are some oddities such as the number 1 is actually Alpha1.
 
 [h1]Support[/h1]
@@ -72,6 +98,11 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 [h1]Change Log[/h1]
+
+[h2]1.6.0[/h2]
+[list]
+[*]Added DoNotRecycleSpecialItems to not recycle common items like ammo.
+[/list]
 
 [h2]1.5.0[/h2]
 

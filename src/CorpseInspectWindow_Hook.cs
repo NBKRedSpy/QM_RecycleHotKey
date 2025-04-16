@@ -9,6 +9,9 @@ using static MGSC.CorpseInspectWindow;
 
 namespace QM_RecycleHotKey
 {
+    /// <summary>
+    /// Update() hook for hotkeys, and processes the amputate and recycle hotkeys.
+    /// </summary>
     public class CorpseInspectWindow_Hook : MonoBehaviour
     {
         public CorpseInspectWindow CorpseInspectWindow { get; set; }
