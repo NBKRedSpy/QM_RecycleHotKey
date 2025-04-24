@@ -51,9 +51,12 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 
 # Change Log
 
+## 1.6.2
+* Fix: DoNoCloseWindowOnEmpty was inverted and not enabled by default.
+
 ## 1.6.1
 * Added DoNoCloseWindowOnEmpty option.
-* 
+
 ## 1.6.0
 * Added DoNotRecycleSpecialItems to not recycle common items like ammo.
 

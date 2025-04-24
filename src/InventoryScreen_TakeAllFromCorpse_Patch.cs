@@ -13,7 +13,7 @@ namespace QM_RecycleHotKey
     {
         public static bool Prepare()
         {
-            return Plugin.Config.DoNoCloseWindowOnEmpty;
+            return !Plugin.Config.DoNoCloseWindowOnEmpty;
         }
         public static void Postfix(InventoryScreen __instance)
         {
