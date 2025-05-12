@@ -32,6 +32,12 @@ namespace QM_RecycleHotKey
 
         };
 
+        /// <summary>
+        /// If true, will not automatically close the corpse window if there is more than one tab.  Including a new tab 
+        /// created by dropping items.
+        /// </summary>
+        public bool DoNoCloseWindowOnEmpty { get; set; } = false;
+
         public bool DoNotRecycleSpecialItems { get; set; } = true;
 
         [JsonConverter(typeof(StringEnumConverter))]

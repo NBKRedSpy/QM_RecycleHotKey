@@ -14,6 +14,7 @@ Optional and disabled by default:
 [list]
 [*]Do not require a weapon to amputate.
 [*]Automatically recycle items and amputate all limbs when the recycle hotkey is pressed.
+[*]Do not automatically close the corpse window if there is more than one tab.
 [/list]
 
 See the Configuration section below for the options.
@@ -82,11 +83,25 @@ The configuration file will be created on the first game run and can be found at
 [td]The categories to not recycle.
 [/td]
 [/tr]
+[tr]
+[td]DoNoCloseWindowOnEmpty
+[/td]
+[td]false
+[/td]
+[td](See the DoNoCloseWindowOnEmpty Option section). If true, will prevent the game from automatically closing the corpse window if there is more than one tab."
+[/td]
+[/tr]
 [/table]
 
 To configure different hotkeys, valid key names can be found at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
 
 There are some oddities such as the number 1 is actually Alpha1.
+
+[h2]DoNoCloseWindowOnEmpty Option[/h2]
+
+By default, the game will automatically close the corpse dialog if there was only one tab (one corpse, no piles around, etc.) and the corpse is completely empty when the Take All command is executed.  Normally the game doesn't include any tabs that were created by dropping items while that dialog is open.
+
+Note:  At the time of writing, there is a bug where the game's "tab count" is incorrect and will always close the dialog if the current corpse tab is empty on "Take All".  A bug has been filed with the developers.
 
 [h1]Support[/h1]
 
@@ -98,6 +113,16 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 [h1]Change Log[/h1]
+
+[h2]1.6.2[/h2]
+[list]
+[*]Fix: DoNoCloseWindowOnEmpty was inverted and not enabled by default.
+[/list]
+
+[h2]1.6.1[/h2]
+[list]
+[*]Added DoNoCloseWindowOnEmpty option.
+[/list]
 
 [h2]1.6.0[/h2]
 [list]
