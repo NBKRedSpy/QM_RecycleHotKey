@@ -57,12 +57,12 @@ namespace QM_RecycleHotKey
 
                 if (!Directory.Exists(oldDirectory)) return;
 
-                Debug.LogWarning($"Moving config folder from '{oldDirectory}' to '{ModPersistenceFolder}");
+                Plugin.Logger.LogWarning($"Moving config folder from '{oldDirectory}' to '{ModPersistenceFolder}");
                 Directory.Move(oldDirectory, ModPersistenceFolder);
             }
             catch (Exception ex)
             {
-                Debug.Log($"Unable to move the config files.  Exception: {ex.ToString()}");
+                Plugin.Logger.Log($"Unable to move the config files.  Exception: {ex.ToString()}");
             }
         }
 
@@ -78,13 +78,13 @@ namespace QM_RecycleHotKey
 
                 if (!File.Exists(oldConfigFile)) return;
 
-                Debug.LogWarning($"Moving config file from '{oldConfigFile}' to '{ModPersistenceFolder}");
+                Plugin.Logger.LogWarning($"Moving config file from '{oldConfigFile}' to '{ModPersistenceFolder}");
                 Directory.CreateDirectory(ModPersistenceFolder);
                 File.Move(oldConfigFile, ConfigPath);
             }
             catch (Exception ex)
             {
-                Debug.Log($"Unable to move the config files.  Exception: {ex.ToString()}");
+                Plugin.Logger.Log($"Unable to move the config files.  Exception: {ex.ToString()}");
             }
         }
     }

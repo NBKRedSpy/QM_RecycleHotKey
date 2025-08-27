@@ -38,6 +38,9 @@ namespace QM_RecycleHotKey
         /// </summary>
         public bool DoNoCloseWindowOnEmpty { get; set; } = false;
 
+        /// <summary>
+        /// Recycle will not recycle items in the DoNotRecycleItems list.
+        /// </summary>
         public bool DoNotRecycleSpecialItems { get; set; } = true;
 
         [JsonConverter(typeof(StringEnumConverter))]
@@ -57,14 +60,16 @@ namespace QM_RecycleHotKey
         /// </summary>
         public bool RecycleAlsoAmputates { get; set; } = false;
 
+        private static JsonSerializerSettings SerializerSettings = new JsonSerializerSettings()
+        {
+            Formatting = Formatting.Indented,
+        };
+
+
         public static ModConfig LoadConfig(string configPath)
         {
             ModConfig config;
 
-            JsonSerializerSettings serializerSettings = new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented,
-            };
 
             if (File.Exists(configPath))
             {
@@ -72,15 +77,15 @@ namespace QM_RecycleHotKey
                 {
                     string sourceJson = File.ReadAllText(configPath);
 
-                    config = JsonConvert.DeserializeObject<ModConfig>(sourceJson, serializerSettings);
+                    config = JsonConvert.DeserializeObject<ModConfig>(sourceJson, SerializerSettings);
 
                     //Add any new elements that have been added since the last mod version the user had.
 
-                    string upgradeConfig = JsonConvert.SerializeObject(config, serializerSettings);
+                    string upgradeConfig = JsonConvert.SerializeObject(config, SerializerSettings);
 
                     if(upgradeConfig != sourceJson)
                     {
-                        Debug.Log("Updating config with missing elements");
+                        Plugin.Logger.Log("Updating config with missing elements");
                         //re-write
                         File.WriteAllText(configPath, upgradeConfig);
                     }
@@ -89,8 +94,7 @@ namespace QM_RecycleHotKey
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError("Error parsing configuration.  Ignoring config file and using defaults");
-                    Debug.LogException(ex);
+                    Plugin.Logger.LogError(ex, "Error parsing configuration.  Ignoring config file and using defaults");
 
                     //Not overwriting in case the user just made a typo.
                     config = new ModConfig();
@@ -101,12 +105,16 @@ namespace QM_RecycleHotKey
             {
                 config = new ModConfig();
 
-                string json = JsonConvert.SerializeObject(config, serializerSettings);
-                File.WriteAllText(configPath, json);
+                config.Save(configPath);
 
                 return config;
             }
         }
 
+        public void Save(string configPath)
+        {
+            string json = JsonConvert.SerializeObject(this, SerializerSettings);
+            File.WriteAllText(Plugin.ConfigDirectories.ConfigPath, json);
+        }
     }
 }

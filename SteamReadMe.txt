@@ -25,6 +25,9 @@ Use the mod "I Don't Want That! (Filter pickup items)" to avoid picking up items
 
 [h1]Configuration[/h1]
 
+This mod can either be configured via the MCM's Mod button on the main menu, or directly in the config file.
+Currently some values can only be edited in the config file.
+
 The configuration file will be created on the first game run and can be found at [i]%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\QM_RecycleHotKey\config.json[/i].
 [table]
 [tr]
@@ -113,6 +116,11 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 [h1]Change Log[/h1]
+
+[h2]1.7.0[/h2]
+[list]
+[*]Added MCM
+[/list]
 
 [h2]1.6.2[/h2]
 [list]
