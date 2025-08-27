@@ -122,7 +122,7 @@ namespace QM_RecycleHotKey
 
             string formattedPropertyName = regex.Replace(propertyName.ToString(), " $1").TrimStart();
 
-            return new ConfigValue(key.ToString(), $@"{formattedPropertyName}: {formattedValue}", header);
+            return new ConfigValue(key.ToString(), $@"{formattedPropertyName}: <color=#FFFEC1>{formattedValue}</color>", header);
 
         }
 

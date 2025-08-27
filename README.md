@@ -54,6 +54,9 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 
 # Change Log
 
+## 1.7.1
+* Added color for the config only values.
+
 ## 1.7.0
 * Added MCM
 
