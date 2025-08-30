@@ -36,7 +36,7 @@ namespace QM_RecycleHotKey
                     "Amputate Without Weapon"),
                 CreateConfigProperty(nameof(ModConfig.DoNoCloseWindowOnEmpty),
                     "Will not automatically close the corpse window if there is more than one tab. Including a new tab created by dropping items.",
-                    "Do No Close Window On Empty"),
+                    "Dot No Close Window On Empty"),
                 CreateConfigProperty(nameof(ModConfig.DoNotRecycleSpecialItems),
                     "Recycle will not recycle items in the DoNotRecycleItems list.",
                     "Do Not Recycle Special Items"),

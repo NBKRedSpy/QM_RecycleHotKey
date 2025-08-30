@@ -117,6 +117,11 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 
 [h1]Change Log[/h1]
 
+[h2]1.7.3[/h2]
+[list]
+[*]Fixed config typo "Do no" instead of "Do not"
+[/list]
+
 [h2]1.7.1[/h2]
 [list]
 [*]Added color for the config only values.
