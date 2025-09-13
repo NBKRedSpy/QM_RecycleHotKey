@@ -3,6 +3,8 @@
 
 All functionality is configurable.
 
+This mod can optionally let the player use amputation weapons directly from their inventory, without needing to equip them. This feature is disabled by default.
+
 Adds the following functions to the corpse screen:
 [list]
 [*]Hotkey for the recycle button.  Z by default.
@@ -12,6 +14,7 @@ Adds the following functions to the corpse screen:
 
 Optional and disabled by default:
 [list]
+[*]Allow amputations weapons in inventory to be used instead of needing to equip them.
 [*]Do not require a weapon to amputate.
 [*]Automatically recycle items and amputate all limbs when the recycle hotkey is pressed.
 [*]Do not automatically close the corpse window if there is more than one tab.
@@ -71,6 +74,14 @@ The configuration file will be created on the first game run and can be found at
 [/td]
 [/tr]
 [tr]
+[td]AllowAmputationWeaponFromInventory
+[/td]
+[td]false
+[/td]
+[td]If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price (cheapest first). If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.
+[/td]
+[/tr]
+[tr]
 [td]DoNotRecycleSpecialItems
 [/td]
 [td]true
@@ -117,6 +128,11 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 
 [h1]Change Log[/h1]
 
+[h2]2.0.0[/h2]
+[list]
+[*]Allow amputations weapons in inventory to be used instead of needing to equip them.
+[/list]
+
 [h2]1.7.3[/h2]
 [list]
 [*]Fixed config typo "Do no" instead of "Do not"
@@ -130,47 +146,4 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 [h2]1.7.0[/h2]
 [list]
 [*]Added MCM
-[/list]
-
-[h2]1.6.2[/h2]
-[list]
-[*]Fix: DoNoCloseWindowOnEmpty was inverted and not enabled by default.
-[/list]
-
-[h2]1.6.1[/h2]
-[list]
-[*]Added DoNoCloseWindowOnEmpty option.
-[/list]
-
-[h2]1.6.0[/h2]
-[list]
-[*]Added DoNotRecycleSpecialItems to not recycle common items like ammo.
-[/list]
-
-[h2]1.5.0[/h2]
-
-Fix: This mod was preventing the "I Don't Want That!" from filtering amputated items when the AmputateWithoutWeapon option was enabled.
-Thank you to Discord user Necrosx for reporting the issue.
-
-[h2]1.4.0[/h2]
-[list]
-[*]Version 0.8.6 compatibility
-[/list]
-
-[h2]1.3.0[/h2]
-[list]
-[*]v0.8.5 compatible.
-[/list]
-
-[h2]1.2.0[/h2]
-[list]
-[*]Moved config file directory.
-[/list]
-
-[h2]1.1.0[/h2]
-[list]
-[*]Added option to amputate without a melee weapon.
-[list]
-[*]Suggested by Steam user VETXP
-[/list]
 [/list]

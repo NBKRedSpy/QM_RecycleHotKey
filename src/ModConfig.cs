@@ -39,6 +39,12 @@ namespace QM_RecycleHotKey
         public bool DoNoCloseWindowOnEmpty { get; set; } = false;
 
         /// <summary>
+        /// If true, will allow amputation weapons to be used from the inventory
+        /// instead of requiring them to be equipped.
+        /// </summary>
+        public bool AllowAmputationWeaponFromInventory { get; set; }
+
+        /// <summary>
         /// Recycle will not recycle items in the DoNotRecycleItems list.
         /// </summary>
         public bool DoNotRecycleSpecialItems { get; set; } = true;
