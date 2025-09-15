@@ -58,6 +58,10 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 
 # Change Log
 
+## 2.0.1
+* Internal Additional error logging.
+* Internal Fixed hotkeys repeating.
+
 ## 2.0.0
 * Allow amputations weapons in inventory to be used instead of needing to equip them.
 

@@ -25,25 +25,33 @@ namespace QM_RecycleHotKey
         /// <param name="__result"></param>
         public static void Postfix(Inventory __instance, ref BasePickupItem __result)
         {
-            //Check if the default search found a weapon.
-            if (__result != null) return;
-
-            //COPY:  This is effectively a modified copy of the original function code.
-            ItemStorage storage = __instance.BackpackStore;
-            if (storage == null) return;
-
-            //Search the backpack for a compatible weapon.  Sort by price so the cheapest weapon is used first.
-            foreach (BasePickupItem item in storage.Items
-                .OrderBy(x => x.Record<ItemRecord>()?.Price ?? 0))
+            try
             {
-                WeaponRecord weaponRecord = item.Record<WeaponRecord>();
-                if(weaponRecord != null && weaponRecord.MeleeCanAmputate 
-                    && !item.Comp<BreakableItemComponent>().IsBroken)
+                //Check if the default search found a weapon.
+                if (__result != null) return;
+
+                //COPY:  This is effectively a modified copy of the original function code.
+                ItemStorage storage = __instance.BackpackStore;
+                if (storage == null) return;
+
+                //Search the backpack for a compatible weapon.  Sort by price so the cheapest weapon is used first.
+                foreach (BasePickupItem item in storage.Items
+                    .OrderBy(x => x.Record<ItemRecord>()?.Price ?? 0))
                 {
-                    __result = item;
-                    return;
+                    WeaponRecord weaponRecord = item.Record<WeaponRecord>();
+                    if (weaponRecord != null && weaponRecord.MeleeCanAmputate
+                        && !item.Comp<BreakableItemComponent>().IsBroken)
+                    {
+                        __result = item;
+                        return;
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogError(ex);
+            }
+            
         }
     }
 }
