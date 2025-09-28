@@ -69,6 +69,7 @@ namespace QM_RecycleHotKey
         private static JsonSerializerSettings SerializerSettings = new JsonSerializerSettings()
         {
             Formatting = Formatting.Indented,
+            ObjectCreationHandling = ObjectCreationHandling.Replace,
         };
 
 

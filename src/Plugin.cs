@@ -29,7 +29,6 @@ namespace QM_RecycleHotKey
 
             Directory.CreateDirectory(ConfigDirectories.AllModsConfigFolder);
             ConfigDirectories = new ConfigDirectories();
-            ConfigDirectories.UpgradeModDirectory();
             Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
 
             Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);

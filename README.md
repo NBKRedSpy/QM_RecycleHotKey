@@ -58,6 +58,10 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 
 # Change Log
 
+## 2.0.2
+* Fix: Config's DoNotRecycleItems was being overwritten with the defaults on game start.
+    * Thanks to Steam user GolpeBaixo for reporting this.
+
 ## 2.0.1
 * Internal Additional error logging.
 * Internal Fixed hotkeys repeating.
