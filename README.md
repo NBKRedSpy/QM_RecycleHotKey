@@ -35,7 +35,7 @@ The configuration file will be created on the first game run and can be found at
 |AmputateKey|A|Amputates all of the corpse's parts|
 |RecycleAlsoAmputates|false|If true, will also amputate when the recycling hotkey is pressed|
 |AmputateWithoutWeapon|false|If true, will execute the amputation action without requiring or using a weapon that can amputate.|
-|AllowAmputationWeaponFromInventory|false| If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price (cheapest first). If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.|
+|AllowAmputationWeaponFromInventory|false| If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price.  Bones are treated as if they have zero price. If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.|
 |DoNotRecycleSpecialItems|true|If true, will not recycle items in the `DoNotRecycleItems` list.|
 |DoNotRecycleItems|Ammo, Mine, Grenade, RepairKit, Parts|The categories to not recycle.|
 |DoNoCloseWindowOnEmpty|false|(See the [DoNoCloseWindowOnEmpty Option section](#donoclosewindowonempty-option)). If true, will prevent the game from automatically closing the corpse window if there is more than one tab."
@@ -57,6 +57,12 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 # Change Log
+## 2.1.0
+* Using Amputation from Inventory:
+    * Fixed: amputation weapon was not searching from upper left.
+    * Now prioritizes using a bone first.
+* Added MCM bindings for hotkeys.
+* Updated MCM config and ModConfig to latest versions.
 
 ## 2.0.2
 * Fix: Config's DoNotRecycleItems was being overwritten with the defaults on game start.

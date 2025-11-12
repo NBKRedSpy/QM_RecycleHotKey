@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using MGSC;
 using ModConfigMenu;
+using QM_RecycleHotKey.Mcm;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,7 +32,7 @@ namespace QM_RecycleHotKey
             ConfigDirectories = new ConfigDirectories();
             Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
 
-            Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);
+            Config = new ModConfig(ConfigDirectories.ConfigPath).LoadConfig();
 
 
             McmConfiguration = new McmConfiguration(Config);

@@ -1,6 +1,7 @@
 ﻿using MGSC;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using QM_RecycleHotKey.Mcm;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,8 +12,16 @@ using UnityEngine;
 
 namespace QM_RecycleHotKey
 {
-    public class ModConfig
+    public class ModConfig : PersistentConfig<ModConfig>
     {
+        public ModConfig()
+        {
+        }
+
+        public ModConfig(string configPath) : base(configPath)
+        {
+
+        }
 
         /// <summary>
         /// The list of items that will not be recycled.
@@ -66,57 +75,6 @@ namespace QM_RecycleHotKey
         /// </summary>
         public bool RecycleAlsoAmputates { get; set; } = false;
 
-        private static JsonSerializerSettings SerializerSettings = new JsonSerializerSettings()
-        {
-            Formatting = Formatting.Indented,
-            ObjectCreationHandling = ObjectCreationHandling.Replace,
-        };
-
-
-        public static ModConfig LoadConfig(string configPath)
-        {
-            ModConfig config;
-
-
-            if (File.Exists(configPath))
-            {
-                try
-                {
-                    string sourceJson = File.ReadAllText(configPath);
-
-                    config = JsonConvert.DeserializeObject<ModConfig>(sourceJson, SerializerSettings);
-
-                    //Add any new elements that have been added since the last mod version the user had.
-
-                    string upgradeConfig = JsonConvert.SerializeObject(config, SerializerSettings);
-
-                    if(upgradeConfig != sourceJson)
-                    {
-                        Plugin.Logger.Log("Updating config with missing elements");
-                        //re-write
-                        File.WriteAllText(configPath, upgradeConfig);
-                    }
-
-                    return config;
-                }
-                catch (Exception ex)
-                {
-                    Plugin.Logger.LogError(ex, "Error parsing configuration.  Ignoring config file and using defaults");
-
-                    //Not overwriting in case the user just made a typo.
-                    config = new ModConfig();
-                    return config;
-                }
-            }
-            else
-            {
-                config = new ModConfig();
-
-                config.Save(configPath);
-
-                return config;
-            }
-        }
 
         public void Save(string configPath)
         {

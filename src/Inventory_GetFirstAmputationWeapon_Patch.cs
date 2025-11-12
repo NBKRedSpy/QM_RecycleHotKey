@@ -27,16 +27,26 @@ namespace QM_RecycleHotKey
         {
             try
             {
-                //Check if the default search found a weapon.
+                //Check if the default search found a weapon in hand.
                 if (__result != null) return;
 
-                //COPY:  This is effectively a modified copy of the original function code.
+                //COPY: Inventory.GetFirstAmputationWeapon - This is effectively a modified copy of the original function code.
                 ItemStorage storage = __instance.BackpackStore;
                 if (storage == null) return;
 
-                //Search the backpack for a compatible weapon.  Sort by price so the cheapest weapon is used first.
+                //Search the backpack for a compatible weapon.  
+                //Sort:  
+                // * bone knife - bone knife costs the same as cheapest knife, but is free.
+                // * price
+                // * order in backpack.  -- Display order is not the same as inventory position.
+
+                //Sort by price so the cheapest weapon is used first, then by cell position.
+                //Then by the display order (X then Y).  Required as the actual item grid uses a cache and is not in display order.
                 foreach (BasePickupItem item in storage.Items
-                    .OrderBy(x => x.Record<ItemRecord>()?.Price ?? 0))
+                    .OrderByDescending(x => x.Id == "bone_knife")  //Always prefer the bone knife.
+                    .ThenBy (x => x.Record<ItemRecord>()?.Price ?? 0)   //Cheapest
+                    .ThenBy(x => x.InventoryPos.X)  //Displayed order
+                    .ThenBy(x => x.InventoryPos.Y)) 
                 {
                     WeaponRecord weaponRecord = item.Record<WeaponRecord>();
                     if (weaponRecord != null && weaponRecord.MeleeCanAmputate
@@ -51,7 +61,6 @@ namespace QM_RecycleHotKey
             {
                 Plugin.Logger.LogError(ex);
             }
-            
         }
     }
 }

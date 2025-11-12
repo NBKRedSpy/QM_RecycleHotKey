@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using ModConfigMenu;
+using ModConfigMenu.Contracts;
 using ModConfigMenu.Objects;
 using System;
 using System.CodeDom;
@@ -15,7 +16,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using UnityEngine;
 
-namespace QM_RecycleHotKey
+namespace QM_RecycleHotKey.Mcm
 {
     internal class McmConfiguration : McmConfigurationBase
     {
@@ -26,9 +27,9 @@ namespace QM_RecycleHotKey
         {
             ModConfig defaults = new ModConfig();
 
-            ModConfigMenuAPI.RegisterModConfig("Recycle Hotkey", new List<ConfigValue>()
+            ModConfigMenuAPI.RegisterModConfig("Recycle Hotkey", new List<IConfigValue>()
             {
-                new ConfigValue("__RestartNote", @"<color=#FBE343>The game must be restarted if any changes are made.</color>" , "Restart"),
+                new ConfigValue("__RestartNote", @"<color=#FF0000>The game must be restarted if any changes are made.</color>" , "Restart"),
 
                 CreateConfigProperty(nameof(ModConfig.RecycleAlsoAmputates),
                     "When recycling items, the amputation will also occur.",
@@ -38,11 +39,8 @@ namespace QM_RecycleHotKey
                     "Amputate Without Weapon"),
                 CreateConfigProperty(nameof(ModConfig.AllowAmputationWeaponFromInventory),
                     """
-                    If enabled, allows amputation weapons to be used directly from the inventory instead of requiring them to be equipped. 
-                    If 'Amputate Without Weapon' is enabled, this option is ignored.
-
-                    Weapon selection priority: Quick slots first, then items in the backpack, sorted by price (cheapest first).
-                    If multiple items have the same price, the weapon closest to the upper left of the storage will be used.
+                    If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped. 
+                    If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price. Bones treated as if they have zero price. If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.
                     """,
                     "Allow Amputation Weapon From Inventory"),
                 
@@ -53,9 +51,14 @@ namespace QM_RecycleHotKey
                     "Recycle will not recycle items in the DoNotRecycleItems list.",
                     "Do Not Recycle Special Items"),
 
-                CreateReadOnly(nameof(ModConfig.AmputateKey)),
-                CreateReadOnly(nameof(ModConfig.RecycleCurrentPageKey)),
-                CreateReadOnly(nameof(ModConfig.DoNotRecycleItems)),
+                CreateEnumDropdown<KeyCode>(nameof(ModConfig.AmputateKey),
+                    "The key to press to amputate the selected body part.",
+                    "Amputate Key", sort: true),
+                CreateEnumDropdown<KeyCode>(nameof(ModConfig.RecycleCurrentPageKey), 
+                    "The key to press to recycle all items on the current page.",
+                    "Recycle Current Page Key", sort: true),
+
+                CreateReadOnly(nameof(ModConfig.DoNotRecycleItems))
 
             }, OnSave);
         }

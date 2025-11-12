@@ -78,7 +78,7 @@ The configuration file will be created on the first game run and can be found at
 [/td]
 [td]false
 [/td]
-[td]If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price (cheapest first). If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.
+[td]If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price.  Bones are treated as if they have zero price. If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.
 [/td]
 [/tr]
 [tr]
@@ -127,6 +127,17 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 [h1]Change Log[/h1]
+
+[h2]2.1.0[/h2]
+[list]
+[*]Using Amputation from Inventory:
+[list]
+[*]Fixed: amputation weapon was not searching from upper left.
+[*]Now prioritizes using a bone first.
+[/list]
+[*]Added MCM bindings for hotkeys.
+[*]Updated MCM config and ModConfig to latest versions.
+[/list]
 
 [h2]2.0.2[/h2]
 [list]
