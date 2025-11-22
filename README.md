@@ -37,7 +37,7 @@ The configuration file will be created on the first game run and can be found at
 |AmputateWithoutWeapon|false|If true, will execute the amputation action without requiring or using a weapon that can amputate.|
 |AllowAmputationWeaponFromInventory|false| If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price.  Bones are treated as if they have zero price. If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.|
 |DoNotRecycleSpecialItems|true|If true, will not recycle items in the `DoNotRecycleItems` list.|
-|DoNotRecycleItems|Ammo, Mine, Grenade, RepairKit, Parts|The categories to not recycle.|
+|DoNotRecycleItems|Ammo, Mine, Grenade, RepairKit, Parts|The categories to not recycle. * See the |
 |DoNoCloseWindowOnEmpty|false|(See the [DoNoCloseWindowOnEmpty Option section](#donoclosewindowonempty-option)). If true, will prevent the game from automatically closing the corpse window if there is more than one tab."
 
 To configure different hotkeys, valid key names can be found at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
@@ -49,8 +49,49 @@ By default, the game will automatically close the corpse dialog if there was onl
 
 Note:  At the time of writing, there is a bug where the game's "tab count" is incorrect and will always close the dialog if the current corpse tab is empty on "Take All".  A bug has been filed with the developers.
 
+## Recycle Items Keys
+This is a list of the current classes of items that can be used in the DoNotRecycleSpecialItems setting.
+
+```
+Weapon
+ThrowableWeapon
+Helmet
+Armor
+Leggings
+Boots
+Backpack
+Vest
+Ammo
+Food
+Drink
+Alcohol
+Pills
+Syringe
+Medpack
+Dressing
+Parts
+RepairKit
+MilitaryBarter
+ScienceBarter
+IndustrialBarter
+ValuableBarter
+Turret
+Cyborg
+Mine
+Grenade
+QuasiArtefact
+QuasiPact
+QuasiOrgan
+Data
+Blueprint
+Organ
+QuestItem
+BioAug
+CyberneticAug
+QuasiAug
+```
 # Support
-If you enjoy my mods and want to buy me a coffee, check out my [Ko-Fi](https://ko-fi.com/nbkredspy71915) page.
+If you enjoy my mods and want to buy me a coffee check out my [Ko-Fi](https://ko-fi.com/nbkredspy71915) page.
 Thanks!
 
 # Source Code

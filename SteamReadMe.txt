@@ -94,7 +94,7 @@ The configuration file will be created on the first game run and can be found at
 [/td]
 [td]Ammo, Mine, Grenade, RepairKit, Parts
 [/td]
-[td]The categories to not recycle.
+[td]The categories to not recycle. * See the
 [/td]
 [/tr]
 [tr]
@@ -117,9 +117,51 @@ By default, the game will automatically close the corpse dialog if there was onl
 
 Note:  At the time of writing, there is a bug where the game's "tab count" is incorrect and will always close the dialog if the current corpse tab is empty on "Take All".  A bug has been filed with the developers.
 
+[h2]Recycle Items Keys[/h2]
+
+This is a list of the current classes of items that can be used in the DoNotRecycleSpecialItems setting.
+[code]
+Weapon
+ThrowableWeapon
+Helmet
+Armor
+Leggings
+Boots
+Backpack
+Vest
+Ammo
+Food
+Drink
+Alcohol
+Pills
+Syringe
+Medpack
+Dressing
+Parts
+RepairKit
+MilitaryBarter
+ScienceBarter
+IndustrialBarter
+ValuableBarter
+Turret
+Cyborg
+Mine
+Grenade
+QuasiArtefact
+QuasiPact
+QuasiOrgan
+Data
+Blueprint
+Organ
+QuestItem
+BioAug
+CyberneticAug
+QuasiAug
+[/code]
+
 [h1]Support[/h1]
 
-If you enjoy my mods and want to buy me a coffee, check out my [url=https://ko-fi.com/nbkredspy71915]Ko-Fi[/url] page.
+If you enjoy my mods and want to buy me a coffee check out my [url=https://ko-fi.com/nbkredspy71915]Ko-Fi[/url] page.
 Thanks!
 
 [h1]Source Code[/h1]
