@@ -19,18 +19,18 @@ namespace QM_RecycleHotKey.StorageRecyclePatches
         override public void Update()
         {
 
-            //Do not include the cargo shuttle 
-            //TODO:  identify drop pod.
-            if(!Input.GetKeyDown(Plugin.Config.RecycleCurrentPageKey) ||
-                object.ReferenceEquals(Component._tabsView.FirstSelectedTab()._relatedWindow, 
-                    Component?._shuttleCargoView))
-            {
-                return;
-            }
+
+
+            if (!Input.GetKeyDown(Plugin.Config.RecycleCurrentPageKey)) return;
 
             ItemStorage storage = Component._tabsView.FirstSelectedTab()?.Content as ItemStorage;
 
-            if(storage == null) return;
+            //Do not recycle shuttle or drop pod storages.
+            if(storage is null || object.ReferenceEquals(Component._shuttleCargoView.Storage , storage) ||
+                object.ReferenceEquals(Component._autonomousCapsuleView.Storage, storage))
+            {
+                return;
+            }
 
             //Recycle all items in the storage.
             DisassembleAllItems(storage);
