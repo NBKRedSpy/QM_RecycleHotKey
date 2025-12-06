@@ -17,7 +17,8 @@ namespace QM_RecycleHotKey
         /// Indicates the disassemble all is running by setting the DissassembleAllIsRunning state flag.  Used to prevent ammo from being disassembled
         /// in the process.
         /// </summary>
-        public static bool DissassembleAllIsRunning { get; private set; }
+        public static bool DissassembleAllIsRunning { get; set; }
+
         public static bool Prepare()
         {
             return Plugin.Config.DoNotRecycleSpecialItems;

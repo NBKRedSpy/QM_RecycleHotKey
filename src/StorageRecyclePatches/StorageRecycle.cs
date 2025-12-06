@@ -32,14 +32,16 @@ namespace QM_RecycleHotKey.StorageRecyclePatches
                 return;
             }
 
-            //Recycle all items in the storage.
             DisassembleAllItems(storage);
         }
 
         private void DisassembleAllItems(ItemStorage storage)
         {
-            //COPY WARNING: This is a logical copy of CorpseInspectWindow.DisassemblyAllItems()
+            //I'm really not sure why I required this flag, but leaving it as is.
+            CorpseInspectionWindow_DisassemblyAllItems_Patch.DissassembleAllIsRunning = true;
 
+
+            //COPY WARNING: This is a logical copy of CorpseInspectWindow.DisassemblyAllItems()
             //Using the the same variables as the decompiled version for easier comparison.
 
             bool flag = false;  //any item was disassembled.
@@ -68,6 +70,8 @@ namespace QM_RecycleHotKey.StorageRecyclePatches
                 storage.SortWithExpandByTypeAndName(Bootstrap._state.Get<SpaceTime>());
                 Component._tabsView.RefreshAllTabs();
             }
+
+            CorpseInspectionWindow_DisassemblyAllItems_Patch.DissassembleAllIsRunning = false;
 
         }
     }
