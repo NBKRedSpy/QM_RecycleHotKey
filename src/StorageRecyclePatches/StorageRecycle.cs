@@ -25,9 +25,12 @@ namespace QM_RecycleHotKey.StorageRecyclePatches
 
             ItemStorage storage = Component._tabsView.FirstSelectedTab()?.Content as ItemStorage;
 
-            //Do not recycle shuttle or drop pod storages.
-            if(storage is null || object.ReferenceEquals(Component._shuttleCargoView.Storage , storage) ||
-                object.ReferenceEquals(Component._autonomousCapsuleView.Storage, storage))
+            //Do not recycle shuttle, pod, or quest storage.
+            if(storage is null || 
+                object.ReferenceEquals(Component._shuttleCargoView.Storage , storage) ||
+                object.ReferenceEquals(Component._autonomousCapsuleView.Storage, storage) ||
+                object.ReferenceEquals(Component._questStorageView.Storage, storage)
+                )
             {
                 return;
             }
