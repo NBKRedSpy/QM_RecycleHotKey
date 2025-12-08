@@ -18,7 +18,7 @@ namespace QM_RecycleHotKey
         public static bool Prepare()
         {
 
-            return !Plugin.Config.DoNotRecycleSpecialItems == false;
+            return Plugin.Config.DoNotRecycleSpecialItems;
 
         }
 

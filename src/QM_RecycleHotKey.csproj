@@ -46,6 +46,12 @@
 			<HintPath>$(ManagedPath)UnityEngine.CoreModule.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
+		<Reference Include="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>$(ManagedPath)UnityEngine.AudioModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+
 		<Reference Include="UnityEngine.InputLegacyModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>$(ManagedPath)UnityEngine.InputLegacyModule.dll</HintPath>

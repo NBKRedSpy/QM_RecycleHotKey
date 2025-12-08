@@ -6,10 +6,13 @@ All functionality is configurable.
 
 This mod can optionally let the player use amputation weapons directly from their inventory, without needing to equip them. This feature is disabled by default.
 
-Adds the following functions to the corpse screen:
+Corpse screen:
 * Hotkey for the recycle button.  Z by default.
 * Hotkey to amputate all limbs.  A by default.
 * Do not recycle certain items.  By default the items are: Ammo, Mine, Grenade, RepairKit, Parts.  
+
+Containers in a Raid:
+* Hotkey to recycle all items.  Z by default.  Excludes drop pod, shuttle, and quest storages.
 
 Optional and disabled by default:
 * Allow amputations weapons in inventory to be used instead of needing to equip them.
@@ -98,29 +101,13 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 # Change Log
+
+## 2.2.0
+* Added recycling option to storage items in raid.  For example, body piles, lockers, etc.
+
 ## 2.1.0
 * Using Amputation from Inventory:
     * Fixed: amputation weapon was not searching from upper left.
     * Now prioritizes using a bone first.
 * Added MCM bindings for hotkeys.
 * Updated MCM config and ModConfig to latest versions.
-
-## 2.0.2
-* Fix: Config's DoNotRecycleItems was being overwritten with the defaults on game start.
-    * Thanks to Steam user GolpeBaixo for reporting this.
-
-## 2.0.1
-* Internal Additional error logging.
-* Internal Fixed hotkeys repeating.
-
-## 2.0.0
-* Allow amputations weapons in inventory to be used instead of needing to equip them.
-
-## 1.7.3
-* Fixed config typo "Do no" instead of "Do not"
-
-## 1.7.1
-* Added color for the config only values.
-
-## 1.7.0
-* Added MCM
