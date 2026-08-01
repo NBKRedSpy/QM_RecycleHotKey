@@ -3,5 +3,9 @@
     "Assemblies": [
         "QM_RecycleHotKey.dll"
     ],
-    "Dependencies": []
+    "Dependencies": [],
+    "SteamTags": [
+        "1.0",
+        "Quality of Life"
+    ]
 }
