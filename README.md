@@ -101,13 +101,5 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 # Change Log
+See the CHANGELOG.md at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
-## 2.2.0
-* Added recycling option to storage items in raid.  For example, body piles, lockers, etc.
-
-## 2.1.0
-* Using Amputation from Inventory:
-    * Fixed: amputation weapon was not searching from upper left.
-    * Now prioritizes using a bone first.
-* Added MCM bindings for hotkeys.
-* Updated MCM config and ModConfig to latest versions.
