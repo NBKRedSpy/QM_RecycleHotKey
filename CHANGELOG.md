@@ -1,6 +1,6 @@
 ## 2.2.1
 * Fix: Amputate with no weapon option was removing durability from amputation weapons in hand.
-    * Thanks to Steam user Tavitoxz for reporting this.
+    * Thanks to Steam user PlagueBringerRatKing for reporting this.
 
 ## 2.2.0
 * Added recycling option to storage items in raid.  For example, body piles, lockers, etc.
