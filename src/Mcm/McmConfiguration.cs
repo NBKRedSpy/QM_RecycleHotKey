@@ -45,7 +45,11 @@ namespace QM_RecycleHotKey.Mcm
                     "Allow Amputation Weapon From Inventory"),
                 
                 CreateConfigProperty(nameof(ModConfig.DoNoCloseWindowOnEmpty),
-                    "Will not automatically close the corpse window if there is more than one tab. Including a new tab created by dropping items.",
+                    """
+                    When using Take All, normally the game will close the window if the *current* tab is empty.  
+                    This option keeps the window open if there is more than one tab. Important for a recycling a corpse's body
+                    where recycling creates a new tabs because not all the items could fit in the user's inventory at the time.
+                    """,
                     "Do Not Close Window On Empty"),
                 CreateConfigProperty(nameof(ModConfig.DoNotRecycleSpecialItems),
                     "Recycle will not recycle items in the DoNotRecycleItems list.",
@@ -58,8 +62,8 @@ namespace QM_RecycleHotKey.Mcm
                     "The key to press to recycle all items on the current page.",
                     "Recycle Current Page Key", sort: true),
 
-                CreateEnumDropdown<KeyCode>(nameof(ModConfig.RecycleAndTakeCurrentPageKey),
-                    "The key to press to recycle and take all items on the current page.",
+                CreateEnumDropdown<KeyCode>(nameof(ModConfig.TakeAndRecyclePage),
+                    "The key to press to take all items and then recycle the remaining items on the current page.",
                     "Recycle And Take Current Page Key", sort: true),
 
 

@@ -59,7 +59,7 @@ namespace QM_RecycleHotKey
         public bool DoNotRecycleSpecialItems { get; set; } = true;
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public KeyCode RecycleAndTakeCurrentPageKey { get; set; } = KeyCode.X;
+        public KeyCode TakeAndRecyclePage { get; set; } = KeyCode.X;
 
 
         [JsonConverter(typeof(StringEnumConverter))]

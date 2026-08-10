@@ -2,7 +2,7 @@
 
 ![thumbnail icon](media/thumbnail.png)
 
-**NEW FOR 2.3.0**: Added X hotkey to recycle and then take all.
+**NEW FOR 2.3.0**: Added X hotkey to take all and then recycle the remaining.
 
 All functionality is configurable. 
 
@@ -11,7 +11,7 @@ This mod can optionally let the player use amputation weapons directly from thei
 Corpse screen:
 * Hotkey for the recycle button.  Z by default.
 * Hotkey to amputate all limbs.  A by default.
-* Hotkey to recycle and then take all items.  X by default.
+* Hotkey to take all items, and then recycle the rest.  X by default.
 * Do not recycle certain items.  By default the items are: Ammo, Mine, Grenade, RepairKit, Parts.  
 
 Containers in a Raid:
@@ -41,7 +41,7 @@ The configuration file will be created on the first game run and can be found at
 |--|--|--|
 |RecycleCurrentPageKey|Z|Invokes the recycle/dismember action for the current page|
 |AmputateKey|A|Amputates all of the corpse's parts|
-|RecycleAndTakeCurrentPageKey|X|Invokes recycle action and then takes all|
+|TakeAndRecycleCurrentPageKey|X|Invokes take action and then the recycle action|
 |RecycleAlsoAmputates|false|If true, will also amputate when the recycling hotkey is pressed|
 |AmputateWithoutWeapon|false|If true, will execute the amputation action without requiring or using a weapon that can amputate.|
 |AllowAmputationWeaponFromInventory|false| If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price.  Bones are treated as if they have zero price. If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.|
