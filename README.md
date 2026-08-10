@@ -2,6 +2,8 @@
 
 ![thumbnail icon](media/thumbnail.png)
 
+**NEW FOR 2.3.0**: Added X hotkey to recycle and then take all.
+
 All functionality is configurable. 
 
 This mod can optionally let the player use amputation weapons directly from their inventory, without needing to equip them. This feature is disabled by default.
@@ -9,6 +11,7 @@ This mod can optionally let the player use amputation weapons directly from thei
 Corpse screen:
 * Hotkey for the recycle button.  Z by default.
 * Hotkey to amputate all limbs.  A by default.
+* Hotkey to recycle and then take all items.  X by default.
 * Do not recycle certain items.  By default the items are: Ammo, Mine, Grenade, RepairKit, Parts.  
 
 Containers in a Raid:
@@ -18,9 +21,11 @@ Optional and disabled by default:
 * Allow amputations weapons in inventory to be used instead of needing to equip them.
 * Do not require a weapon to amputate.
 * Automatically recycle items and amputate all limbs when the recycle hotkey is pressed.
-* Do not automatically close the corpse window if there is more than one tab.
+* Do not automatically close the corpse window if there is more than one tab.  Ex, the corpse and floor items.
 
-See the [Configuration](#configuration) section below for the options.
+Supports MCM which allows the user to edit the configuration from the Mods button on the main page.
+
+See the [Configuration](#configuration) section below for the options.  
 
 # Filtering Out Items
 Use the mod "I Don't Want That! (Filter pickup items)" to avoid picking up items that are not wanted after recycle/amputation.  For example: legs, hands, flesh, more meat than is inventory, etc.
@@ -36,6 +41,7 @@ The configuration file will be created on the first game run and can be found at
 |--|--|--|
 |RecycleCurrentPageKey|Z|Invokes the recycle/dismember action for the current page|
 |AmputateKey|A|Amputates all of the corpse's parts|
+|RecycleAndTakeCurrentPageKey|X|Invokes recycle action and then takes all|
 |RecycleAlsoAmputates|false|If true, will also amputate when the recycling hotkey is pressed|
 |AmputateWithoutWeapon|false|If true, will execute the amputation action without requiring or using a weapon that can amputate.|
 |AllowAmputationWeaponFromInventory|false| If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price.  Bones are treated as if they have zero price. If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.|
@@ -101,5 +107,5 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHotKey
 
 # Change Log
-See the CHANGELOG.md at https://github.com/NBKRedSpy/QM_RecycleHotKey
+See the CHANGELOG.md at https://github.com/NBKRedSpy/QM_RecycleHotKey/blob/main/CHANGELOG.md
 

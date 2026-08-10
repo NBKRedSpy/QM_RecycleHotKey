@@ -7,7 +7,7 @@ using HarmonyLib;
 using MGSC;
 using UnityEngine;
 
-namespace QM_RecycleHotKey
+namespace QM_RecycleHotKey.Patches
 {
     /// <summary>
     /// Attaches hotkey detection for the Sort and Amputate functionality.

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace QM_RecycleHotKey.StorageRecyclePatches
+namespace QM_RecycleHotKey.Patches.StorageRecyclePatches
 {
 
     /// <summary>

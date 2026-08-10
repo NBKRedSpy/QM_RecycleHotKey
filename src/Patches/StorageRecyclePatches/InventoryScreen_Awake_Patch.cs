@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using MGSC;
 
-namespace QM_RecycleHotKey.StorageRecyclePatches
+namespace QM_RecycleHotKey.Patches.StorageRecyclePatches
 {
     /// <summary>
     /// Attaches a MonoBehaviour to attach the hotkey monitor for the storage recycling functionality.

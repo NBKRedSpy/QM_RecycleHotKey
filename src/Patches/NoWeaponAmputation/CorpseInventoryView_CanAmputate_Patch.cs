@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QM_RecycleHotKey.NoWeaponAmputation
+namespace QM_RecycleHotKey.Patches.NoWeaponAmputation
 {
 
     [HarmonyPatch(typeof(CorpseInspectWindow), nameof(CorpseInspectWindow.CanAmputate))]

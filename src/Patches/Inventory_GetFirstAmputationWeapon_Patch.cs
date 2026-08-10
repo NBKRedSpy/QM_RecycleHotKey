@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QM_RecycleHotKey
+namespace QM_RecycleHotKey.Patches
 {
     [HarmonyPatch(typeof(Inventory), nameof(Inventory.GetFirstAmputationWeapon))]
     public static class Inventory_GetFirstAmputationWeapon_Patch

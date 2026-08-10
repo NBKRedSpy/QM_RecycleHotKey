@@ -7,7 +7,7 @@ using HarmonyLib;
 using MGSC;
 using UnityEngine;
 
-namespace QM_RecycleHotKey
+namespace QM_RecycleHotKey.Patches
 {
     [HarmonyPatch(typeof(CorpseInspectWindow), nameof(CorpseInspectWindow.DisassemblyAllItems))]
     public static class CorpseInspectionWindow_DisassemblyAllItems_Patch

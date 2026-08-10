@@ -7,7 +7,7 @@ using MGSC;
 using HarmonyLib;
 using UnityEngine;
 
-namespace QM_RecycleHotKey
+namespace QM_RecycleHotKey.Patches
 {
     /// <summary>
     /// Handles excluding items from being disassembled when recycling a corpse.  Ex: Ammo.

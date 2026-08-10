@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
 using MGSC;
-using QM_RecycleHotKey.StorageRecyclePatches;
+using QM_RecycleHotKey.Patches.StorageRecyclePatches;
 
-namespace QM_RecycleHotKey
+namespace QM_RecycleHotKey.Patches
 {
     [HarmonyPatch(typeof(InventoryScreen), nameof(InventoryScreen.Awake))]
     public class InventoryScreen_Awake_Patch

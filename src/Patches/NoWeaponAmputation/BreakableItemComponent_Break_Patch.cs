@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using MGSC;
 
-namespace QM_RecycleHotKey.NoWeaponAmputation
+namespace QM_RecycleHotKey.Patches.NoWeaponAmputation
 {
     /// <summary>
     /// Changes the amputation weapon to not lose durability when the AmputateWithoutWeapon option is true.

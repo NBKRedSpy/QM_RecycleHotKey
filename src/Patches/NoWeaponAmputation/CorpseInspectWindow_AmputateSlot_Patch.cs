@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using MGSC;
 
-namespace QM_RecycleHotKey.NoWeaponAmputation
+namespace QM_RecycleHotKey.Patches.NoWeaponAmputation
 {
     /// <summary>
     /// Sets the flag to the weapon "break" that durability should not be reduced when 

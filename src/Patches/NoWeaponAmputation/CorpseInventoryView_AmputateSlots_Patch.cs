@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static HarmonyLib.Code;
 
-namespace QM_RecycleHotKey.NoWeaponAmputation
+namespace QM_RecycleHotKey.Patches.NoWeaponAmputation
 {
     [HarmonyPatch(typeof(CorpseInspectWindow), nameof(CorpseInspectWindow.AmputateSlot))]
     internal static class CorpseInventoryView_AmputateSlots_Patch

@@ -58,6 +58,11 @@ namespace QM_RecycleHotKey.Mcm
                     "The key to press to recycle all items on the current page.",
                     "Recycle Current Page Key", sort: true),
 
+                CreateEnumDropdown<KeyCode>(nameof(ModConfig.RecycleAndTakeCurrentPageKey),
+                    "The key to press to recycle and take all items on the current page.",
+                    "Recycle And Take Current Page Key", sort: true),
+
+
                 CreateReadOnly(nameof(ModConfig.DoNotRecycleItems))
 
             }, OnSave);

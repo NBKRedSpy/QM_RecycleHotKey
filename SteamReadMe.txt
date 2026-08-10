@@ -1,6 +1,8 @@
 [h1]Quasimorph Recycle Hotkey[/h1]
 
 
+[b]NEW FOR 2.3.0[/b]: Added X hotkey to recycle and then take all.
+
 All functionality is configurable.
 
 This mod can optionally let the player use amputation weapons directly from their inventory, without needing to equip them. This feature is disabled by default.
@@ -9,6 +11,7 @@ Corpse screen:
 [list]
 [*]Hotkey for the recycle button.  Z by default.
 [*]Hotkey to amputate all limbs.  A by default.
+[*]Hotkey to recycle and then take all items.  X by default.
 [*]Do not recycle certain items.  By default the items are: Ammo, Mine, Grenade, RepairKit, Parts.
 [/list]
 
@@ -22,8 +25,10 @@ Optional and disabled by default:
 [*]Allow amputations weapons in inventory to be used instead of needing to equip them.
 [*]Do not require a weapon to amputate.
 [*]Automatically recycle items and amputate all limbs when the recycle hotkey is pressed.
-[*]Do not automatically close the corpse window if there is more than one tab.
+[*]Do not automatically close the corpse window if there is more than one tab.  Ex, the corpse and floor items.
 [/list]
+
+Supports MCM which allows the user to edit the configuration from the Mods button on the main page.
 
 See the Configuration section below for the options.
 
@@ -60,6 +65,14 @@ The configuration file will be created on the first game run and can be found at
 [td]A
 [/td]
 [td]Amputates all of the corpse's parts
+[/td]
+[/tr]
+[tr]
+[td]RecycleAndTakeCurrentPageKey
+[/td]
+[td]X
+[/td]
+[td]Invokes recycle action and then takes all
 [/td]
 [/tr]
 [tr]
@@ -175,4 +188,4 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 
 [h1]Change Log[/h1]
 
-See the CHANGELOG.md at https://github.com/NBKRedSpy/QM_RecycleHotKey
+See the CHANGELOG.md at https://github.com/NBKRedSpy/QM_RecycleHotKey/blob/main/CHANGELOG.md
