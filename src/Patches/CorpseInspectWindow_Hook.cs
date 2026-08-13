@@ -28,30 +28,39 @@ namespace QM_RecycleHotKey.Patches
             try
             {
 
-                bool recycle = false;   //Invokes the recycle functionality
-                bool takeAll = false;      //Invokes the take all functionality
+                if(!Input.anyKeyDown) return;
 
+                bool runRecycle = false;   //Will invoke the recycle functionality
 
-
-                if (InputHelper.GetKeyDown(Plugin.Config.RecycleAndTakeCurrentPageKey))
+                if (InputHelper.GetKeyDown(Plugin.Config.TakeAndRecyclePage))
                 {
-                    recycle = true;
-                    takeAll = true;
+                    runRecycle = true;
+
+                    if (__instance._takeAllButton.isActiveAndEnabled)
+                    {
+
+                        //The take all button checks the left button click, unlike the other click methods.
+                        __instance._takeAllButton.OnPointerClick(
+                            new PointerEventData(EventSystem.current)
+                            {
+                                button = PointerEventData.InputButton.Left
+                            });
+                    }
                 }
                 else if (InputHelper.GetKeyDown(Plugin.Config.RecycleCurrentPageKey))
                 {
-                    recycle = true;
+                    runRecycle = true;
                 }
                 else if (InputHelper.GetKeyDown(Plugin.Config.AmputateKey))
                 {
-                    recycle = false;
+                    runRecycle = false;
                 }
                 else
                 {
                     return;
                 }
 
-                if (recycle)
+                if (runRecycle)
                 {
                     if (__instance._disassemblyCorpseButton.isActiveAndEnabled)
                     {
@@ -59,7 +68,7 @@ namespace QM_RecycleHotKey.Patches
                     }
                 }
 
-                if (!recycle || Plugin.Config.RecycleAlsoAmputates)
+                if (!runRecycle || Plugin.Config.RecycleAlsoAmputates)
                 {
                     //Amputate
                     if (__instance._bodyPartsButton.isActiveAndEnabled)
@@ -82,16 +91,6 @@ namespace QM_RecycleHotKey.Patches
                             }
                         }
                     }
-                }
-
-                //The take all button checks the left button click, unlike the other click methods.
-                if (takeAll)
-                {
-                    __instance._takeAllButton.OnPointerClick(
-                    new PointerEventData(EventSystem.current)
-                    {
-                        button = PointerEventData.InputButton.Left
-                    });
                 }
 
             }

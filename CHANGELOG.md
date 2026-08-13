@@ -1,6 +1,6 @@
 ## 2.3.0
 Features:
-* Added the Recycle All and Take hotkey.  Defaults to X
+* Added the "Take all and Recycle" hotkey.  Defaults to X
 
 Internal:
 * Organized patches

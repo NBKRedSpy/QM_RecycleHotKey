@@ -1,6 +1,7 @@
 ﻿using MGSC;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -18,10 +19,11 @@ namespace QM_RecycleHotKey.Patches.StorageRecyclePatches
     {
         override public void Update()
         {
-
-
-
-            if (!Input.GetKeyDown(Plugin.Config.RecycleCurrentPageKey)) return;
+            if (!InputHelper.GetKeyDown(Plugin.Config.RecycleCurrentPageKey)
+                && !InputHelper.GetKeyDown(Plugin.Config.TakeAndRecyclePage))
+            {
+                return;
+            }
 
             ItemStorage storage = Component._tabsView.FirstSelectedTab()?.Content as ItemStorage;
 
@@ -34,6 +36,26 @@ namespace QM_RecycleHotKey.Patches.StorageRecyclePatches
             {
                 return;
             }
+
+            if(InputHelper.GetKeyDown(Plugin.Config.TakeAndRecyclePage))
+            {
+
+                //Find the storage view for the current tab that is being shown.  The inventory screen doesn't have a
+                //"currently displaying this storage" property.
+                ItemsStorageView storageView =
+                    object.ReferenceEquals(Component._itemsOnFloorView.Storage, storage) ? Component._itemsOnFloorView :
+                    object.ReferenceEquals(Component._objectStoreView.Storage, storage) ? Component._objectStoreView : null;
+
+                if (storageView != null)
+                {
+                    Component.TakeAllFromItemStorage(storageView);
+                }
+                else
+                {
+                    Plugin.Logger.LogWarning($"StorageRecycle: Could not find a storage view for the current tab's storage");
+                }
+            }
+
 
             DisassembleAllItems(storage);
         }
