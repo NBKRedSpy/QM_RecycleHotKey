@@ -8,6 +8,8 @@ All functionality is configurable.
 
 This mod can optionally let the player use amputation weapons directly from their inventory, without needing to equip them. This feature is disabled by default.
 
+Note - To disable any hotkey, set the value to None in the settings.
+
 Corpse screen:
 * Hotkey for the recycle button.  Z by default.
 * Hotkey to amputate all limbs.  A by default.
