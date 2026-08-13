@@ -1,7 +1,7 @@
 [h1]Quasimorph Recycle Hotkey[/h1]
 
 
-[b]NEW FOR 2.3.0[/b]: Added X hotkey to recycle and then take all.
+[b]NEW FOR 2.3.0[/b]: Added X hotkey to take all and then recycle the remaining.
 
 All functionality is configurable.
 
@@ -11,7 +11,7 @@ Corpse screen:
 [list]
 [*]Hotkey for the recycle button.  Z by default.
 [*]Hotkey to amputate all limbs.  A by default.
-[*]Hotkey to recycle and then take all items.  X by default.
+[*]Hotkey to take all items, and then recycle the rest.  X by default.
 [*]Do not recycle certain items.  By default the items are: Ammo, Mine, Grenade, RepairKit, Parts.
 [/list]
 
@@ -68,11 +68,11 @@ The configuration file will be created on the first game run and can be found at
 [/td]
 [/tr]
 [tr]
-[td]RecycleAndTakeCurrentPageKey
+[td]TakeAndRecycleCurrentPageKey
 [/td]
 [td]X
 [/td]
-[td]Invokes recycle action and then takes all
+[td]Invokes take action and then the recycle action
 [/td]
 [/tr]
 [tr]
