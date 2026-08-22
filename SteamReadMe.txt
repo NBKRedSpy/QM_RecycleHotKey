@@ -191,3 +191,7 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_RecycleHot
 [h1]Change Log[/h1]
 
 See the CHANGELOG.md at https://github.com/NBKRedSpy/QM_RecycleHotKey/blob/main/CHANGELOG.md
+
+[h1]Tags[/h1]
+
+Disassemble, recycle, amputate, floor, ground, containers, storage, pile
