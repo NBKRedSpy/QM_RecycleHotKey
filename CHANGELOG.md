@@ -1,8 +1,7 @@
 # 2.3.1
 * Renamed MCM title to "Recycle and Amputate QoL".
 
-
-## 2.3.0
+# 2.3.0
 Features:
 * Added the "Take all and Recycle" hotkey.  Defaults to X
 
@@ -11,14 +10,14 @@ Internal:
 * Renamed classes that didn't match patch target.
 * Changed to InputHelper from Input for better mod compatibility.
 
-## 2.2.1
+# 2.2.1
 * Fix: Amputate with no weapon option was removing durability from amputation weapons in hand.
     * Thanks to Steam user PlagueBringerRatKing for reporting this.
 
-## 2.2.0
+# 2.2.0
 * Added recycling option to storage items in raid.  For example, body piles, lockers, etc.
 
-## 2.1.0
+# 2.1.0
 * Using Amputation from Inventory:
     * Fixed: amputation weapon was not searching from upper left.
     * Now prioritizes using a bone first.
