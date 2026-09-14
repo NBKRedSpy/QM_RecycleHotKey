@@ -27,7 +27,7 @@ namespace QM_RecycleHotKey.Mcm
         {
             ModConfig defaults = new ModConfig();
 
-            ModConfigMenuAPI.RegisterModConfig("Recycle Hotkey", new List<IConfigValue>()
+            ModConfigMenuAPI.RegisterModConfig("Recycle and Amputate QoL", new List<IConfigValue>()
             {
                 new ConfigValue("__RestartNote", @"<color=#FF0000>The game must be restarted if any changes are made.</color>" , "Restart"),
 

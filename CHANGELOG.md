@@ -1,3 +1,7 @@
+# 2.3.1
+* Renamed MCM title to "Recycle and Amputate QoL".
+
+
 ## 2.3.0
 Features:
 * Added the "Take all and Recycle" hotkey.  Defaults to X
