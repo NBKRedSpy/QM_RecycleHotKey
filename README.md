@@ -2,7 +2,8 @@
 
 ![thumbnail icon](media/thumbnail.png)
 
-**NEW FOR 2.3.0**: Added X hotkey to take all and then recycle the remaining.
+
+**New for 2.4.0**: The option to use amputation weapons in backpack now *always* searches for a bone knife first.  Backpack first, then in hand.  See `AllowAmputationWeaponFromInventory` in the [Configuration](#configuration) section for full info.
 
 All functionality is configurable. 
 
@@ -21,6 +22,7 @@ Containers in a Raid:
 
 Optional and disabled by default:
 * Allow amputations weapons in inventory to be used instead of needing to equip them.
+    * This will *always* try to use a bone first.  Even if an amputation weapon is in hand.
 * Do not require a weapon to amputate.
 * Automatically recycle items and amputate all limbs when the recycle hotkey is pressed.
 * Do not automatically close the corpse window if there is more than one tab.  Ex, the corpse and floor items.
@@ -46,7 +48,7 @@ The configuration file will be created on the first game run and can be found at
 |TakeAndRecycleCurrentPageKey|X|Invokes take action and then the recycle action|
 |RecycleAlsoAmputates|false|If true, will also amputate when the recycling hotkey is pressed|
 |AmputateWithoutWeapon|false|If true, will execute the amputation action without requiring or using a weapon that can amputate.|
-|AllowAmputationWeaponFromInventory|false| If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price.  Bones are treated as if they have zero price. If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.|
+|AllowAmputationWeaponFromInventory|false| If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: bone knife in backpack, then in hand.  Then any amputation in backpack, then in hand ordered by lowest price.  Ties for cost are upper left to lower right in backpack|
 |DoNotRecycleSpecialItems|true|If true, will not recycle items in the `DoNotRecycleItems` list.|
 |DoNotRecycleItems|Ammo, Mine, Grenade, RepairKit, Parts|The categories to not recycle. * See the |
 |DoNoCloseWindowOnEmpty|false|(See the [DoNoCloseWindowOnEmpty Option section](#donoclosewindowonempty-option)). If true, will prevent the game from automatically closing the corpse window if there is more than one tab."

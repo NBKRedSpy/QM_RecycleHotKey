@@ -1,3 +1,7 @@
+# 2.4.0
+* Changed amputation weapon search to *always* prefer bone knife.
+* Then an amputation anywhere, as the game does.
+
 # 2.3.1
 * Renamed MCM title to "Recycle and Amputate QoL".
     * Thanks to Steam user "Луи Ви сандали" for reporting this.

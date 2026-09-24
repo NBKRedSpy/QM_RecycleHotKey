@@ -1,7 +1,7 @@
 [h1]Quasimorph Recycle Hotkey[/h1]
 
 
-[b]NEW FOR 2.3.0[/b]: Added X hotkey to take all and then recycle the remaining.
+[b]New for 2.4.0[/b]: The option to use amputation weapons in backpack now [i]always[/i] searches for a bone knife first.  Backpack first, then in hand.  See [i]AllowAmputationWeaponFromInventory[/i] in the Configuration section for full info.
 
 All functionality is configurable.
 
@@ -25,6 +25,9 @@ Containers in a Raid:
 Optional and disabled by default:
 [list]
 [*]Allow amputations weapons in inventory to be used instead of needing to equip them.
+[list]
+[*]This will [i]always[/i] try to use a bone first.  Even if an amputation weapon is in hand.
+[/list]
 [*]Do not require a weapon to amputate.
 [*]Automatically recycle items and amputate all limbs when the recycle hotkey is pressed.
 [*]Do not automatically close the corpse window if there is more than one tab.  Ex, the corpse and floor items.
@@ -98,7 +101,7 @@ The configuration file will be created on the first game run and can be found at
 [/td]
 [td]false
 [/td]
-[td]If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: Quick slots first, then items in backpack, sorted by price.  Bones are treated as if they have zero price. If there are multiple items with the same price, the weapon that is closest to the upper left of the storage will be used.
+[td]If enabled, will allow amputation weapons to be used from the inventory instead of requiring them to be equipped.  If 'Amputate Without Weapon' is enabled, this option is ignored. The weapon priority is: bone knife in backpack, then in hand.  Then any amputation in backpack, then in hand ordered by lowest price.  Ties for cost are upper left to lower right in backpack
 [/td]
 [/tr]
 [tr]

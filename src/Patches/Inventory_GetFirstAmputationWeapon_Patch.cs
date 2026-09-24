@@ -27,40 +27,108 @@ namespace QM_RecycleHotKey.Patches
         {
             try
             {
-                //Check if the default search found a weapon in hand.
-                if (__result != null) return;
 
                 //COPY: Inventory.GetFirstAmputationWeapon - This is effectively a modified copy of the original function code.
-                ItemStorage storage = __instance.BackpackStore;
-                if (storage == null) return;
 
-                //Search the backpack for a compatible weapon.  
+
                 //Sort:  
+                // * Backpack, then hand.
                 // * bone knife - bone knife costs the same as cheapest knife, but is free.
                 // * price
                 // * order in backpack.  -- Display order is not the same as inventory position.
 
-                //Sort by price so the cheapest weapon is used first, then by cell position.
-                //Then by the display order (X then Y).  Required as the actual item grid uses a cache and is not in display order.
-                foreach (BasePickupItem item in storage.Items
-                    .OrderByDescending(x => x.Id == "bone_knife")  //Always prefer the bone knife.
-                    .ThenBy (x => x.Record<ItemRecord>()?.Price ?? 0)   //Cheapest
-                    .ThenBy(x => x.InventoryPos.X)  //Displayed order
-                    .ThenBy(x => x.InventoryPos.Y)) 
+                List<(bool isHand, BasePickupItem item, int? Durability)> allItems = new List<(bool, BasePickupItem, int?)>();
+                allItems.AddRange(__instance.BackpackStore.Items.Select(x => (false, x, GetAmputationDurability(x))));
+                allItems.AddRange(__instance.WeaponSlots.SelectMany(x => x.Items).Select(x => (true, x, GetAmputationDurability(x))));
+
+
+                BasePickupItem amputationWeapon = null;
+
+                //Filter out broken and not amputation capable items.
+                allItems = allItems.Where(x => x.Durability.HasValue).ToList();
+
+                //Search for a bone knife with lowest durabillity in backpack then in hand.
+                //Try for the lowest durability bone knife.
+                amputationWeapon = allItems
+                    .Where(x => x.item.Id == "bone_knife")
+                    .OrderBy(x => x.isHand)  //Backpack first, then hand.
+                    .ThenBy(x => x.Durability) //Prefer the lowest durability.  Primarily because there are mod based sorts.
+                    .Select(x => x.item)
+                    .FirstOrDefault();      
+
+                if(amputationWeapon != null)
                 {
-                    WeaponRecord weaponRecord = item.Record<WeaponRecord>();
-                    if (weaponRecord != null && weaponRecord.MeleeCanAmputate
-                        && !item.Comp<BreakableItemComponent>().IsBroken)
-                    {
-                        __result = item;
-                        return;
-                    }
+                    __result = amputationWeapon;
+                    return;
                 }
+
+                //Search for anything otherwise.
+                // Preferred order:
+                //  * In Hand, then backpack. - Hand overrides anything else.
+                //  * Cheapest price
+                //  * Display order in backpack.
+                amputationWeapon = allItems
+                    .OrderByDescending(x => x.isHand)  
+                    .ThenBy(x => x.item.Record<ItemRecord>()?.Price ?? 0)   //Cheapest
+                    .ThenBy(x => x.item.InventoryPos.Y)
+                    .ThenBy(x => x.item.InventoryPos.X)
+                    .Select(x=> x.item)
+                    .FirstOrDefault();
+
+                if(amputationWeapon != null)
+                {
+                    __result = amputationWeapon;
+                    return;
+                }
+
+                //Otherwise, use whatever the original function found.  Will probably be null;
+                return;
             }
             catch (Exception ex)
             {
                 Plugin.Logger.LogError(ex);
             }
+        }
+
+        /// <summary>
+        /// Returns the durability of the item.  If the item cannot amputate or is broken, returns null.    
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        private static int? GetAmputationDurability(BasePickupItem item)
+        {
+            WeaponRecord weaponRecord = item.Record<WeaponRecord>();
+            if (weaponRecord != null && weaponRecord.MeleeCanAmputate
+                && !item.Comp<BreakableItemComponent>().IsBroken)
+            {
+                return item.Comp<BreakableItemComponent>().Durability;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Searches for a compatible weapon.  Preferring a bone knife.
+        /// </summary>
+        /// <param name="storage"></param>
+        /// <returns></returns>
+        private static BasePickupItem FindPreferredWeapon(IEnumerable<BasePickupItem> items)
+        {
+            foreach (BasePickupItem item in items
+                .OrderByDescending(x => x.Id == "bone_knife")  //Always prefer the bone knife.
+                .ThenBy(x => x.Record<ItemRecord>()?.Price ?? 0)   //Cheapest
+                .ThenBy(x => x.InventoryPos.Y)
+                .ThenBy(x => x.InventoryPos.X))  //Displayed order
+            {
+                WeaponRecord weaponRecord = item.Record<WeaponRecord>();
+                if (weaponRecord != null && weaponRecord.MeleeCanAmputate
+                    && !item.Comp<BreakableItemComponent>().IsBroken)
+                {
+                    return item;
+                }
+            }
+
+            return null;
         }
     }
 }
